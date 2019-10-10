@@ -13,8 +13,8 @@ let testCasesOne: [([Double], Double)] = [
     (input: [1.5, 2.25, 4.5, -1.5], expectedOutput: 1.6875),
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = average(of: input)
+for (input, expectedOutput) in testCasesOne {
+    let output = average(of: input)
 //    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
 //}
 
