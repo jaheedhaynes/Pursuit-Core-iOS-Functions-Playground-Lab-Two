@@ -4,7 +4,14 @@ import UIKit
 
 // Write a function named average(of:) that returns the average of an array of Doubles
 
-// Your function here
+func average(of input: [Double]) -> Double {
+    var sum = 0.0
+    for num in input {
+        sum += num
+    }
+    return sum / Double(input.count)
+
+}
 
 let testCasesOne: [([Double], Double)] = [
     (input: [1,2,3,4,5], expectedOutput: 3),
@@ -15,14 +22,27 @@ let testCasesOne: [([Double], Double)] = [
 
 for (input, expectedOutput) in testCasesOne {
     let output = average(of: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 // Question Two
 
 // Write a function named frequencyDictionary(of:) that takes a String as input and returns a dictionary that maps each character its number of occurrances
 
-// Your function here
+func frequencyDictionary(of str: String) -> [Character:Int] {
+var expectedOutput: [Character:Int] = [:]
+for char in str {
+    expectedOutput[char] = 0
+}
+for char in str {
+    if var trueOutput = expectedOutput[char] {
+    trueOutput += 1
+        expectedOutput[char] = trueOutput
+}
+}
+return expectedOutput
+
+}
 
 let testCasesTwo: [(String, [Character: Int])] = [
     (input: "hello", expectedOutput: ["h": 1, "e": 1, "l": 2, "o": 1]),
@@ -30,10 +50,10 @@ let testCasesTwo: [(String, [Character: Int])] = [
     (input: "More words", expectedOutput: ["M": 1, "o": 2, "r": 2, "e": 1, " ": 1, "w": 1, "d": 1, "s": 1])
 ]
 
-//for (input, expectedOutput) in testCasesTwo {
-//    let output = frequencyDictionary(of: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesTwo {
+    let output = frequencyDictionary(of: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Three
@@ -62,7 +82,15 @@ let testCasesThree = [
 
 // Write a function named value(_:isGreaterThanAverageOf:) that takes in an array of Doubles and a Double and returns whether the Double is greater than the average
 
-// Your function here
+func value(inputOne: Double, isGreaterThanAverageOf inputTwo: [Double]) -> Bool {
+    var sum = 0.0
+    for doubles in inputTwo {
+        sum += doubles
+    }
+    return inputOne > sum / Double(inputTwo.count)
+    
+}
+
 
 let testCasesFour = [
     (inputOne: 4.0, inputTwo: [1.0,2,3,4,5], expectedOutput: true),
@@ -72,10 +100,10 @@ let testCasesFour = [
     (inputOne: 105.4, inputTwo: [1,42,1,541,42,5], expectedOutput: true),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = value(inputOne, isGreaterThanAverageOf: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = value(inputOne, isGreaterThanAverageOf: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
+}
 
 // Question Five
 
